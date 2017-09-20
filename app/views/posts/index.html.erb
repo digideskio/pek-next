@@ -1,3 +1,4 @@
+<div id="content-main" class="neutral-content">
 <h1><%= @membership.user.full_name %> posztjai</h1>
 
 <% @group.post_types.each do |post_type| %>
@@ -8,15 +9,13 @@
 
       <%= button_to "Poszt elvétele", group_membership_post_path(@group.id, @membership.id, 
         @membership.posts.find { |post| post.post_type == post_type }.id),
-        action: :destroy, method: :delete, class: "uk-button uk-button-danger uk-button-mini post-button",
-        form: {style: active_post ? 'display:inline-block;' : 'display:none'}, remote: true %>
+        action: :destroy, method: :delete, class: "uk-button uk-button-danger uk-button-mini" %>
 
     <% else %>
 
       <%= button_to "Poszt adása", group_membership_posts_path(@group.id, @membership.id),
         action: :create, params: { post_type_id: post_type.id },
-        class: "uk-button uk-button-success uk-button-mini post-button",
-        form: {style: !active_post ? 'display:inline-block;' : 'display:none'}, remote: true %>
+        class: "uk-button uk-button-success uk-button-mini" %>
 
     <% end %>
     <%= post_type.name %>
@@ -33,4 +32,5 @@
 <div class="uk-margin-large-top uk-margin uk-text-center" id="back-button-container">
     <%= button_to "Vissza", group_path(@group.id), method: :get,
       class: "uk-button uk-button-primary uk-button-large" %>
+</div>
 </div>
