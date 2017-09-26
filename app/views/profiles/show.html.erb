@@ -35,6 +35,19 @@
           </div>
         <% end %>
 
+        <table class="uk-table uk-table-hover uk-table-striped">
+          <tr>
+            <th>Szemeszter</th>
+            <th>Pontszám</th>
+          </tr>
+          <% own_point_histories do |point| %>
+              <tr>
+                <td><%= point.semester %></td>
+                <td><%= point.point %></td>
+              </tr>
+          <% end %>
+        </table>
+
       </div>
     </div>
   </div>

@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
 
   has_many :memberships, class_name: "Membership", foreign_key: :usr_id
   has_many :groups, through: :memberships
+  has_many :point_histories, class_name: "PointHistory", foreign_key: :usr_id
 
   has_one :primary_membership, class_name: "Membership", foreign_key: :id, primary_key: :usr_svie_primary_membership
 

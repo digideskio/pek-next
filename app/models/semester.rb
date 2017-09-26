@@ -27,8 +27,6 @@ class Semester
     starting_year.to_s + second_year.to_s + (autumn ? 1 : 2).to_s
   end
 
-  private
-
   def second_year
     starting_year + 1
   end
