@@ -18,4 +18,12 @@ class Membership < ActiveRecord::Base
   def leader?
     posts.any? { |post| post.post_type.id == LEADER_POST_ID }
   end
+
+  def newbie?
+    posts.any? { |post| post.post_type.id == DEFAULT_POST_ID }
+  end
+
+  def post(post_type)
+    posts.find_by(post_type_id: post_type)
+  end
 end
