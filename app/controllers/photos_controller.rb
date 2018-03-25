@@ -15,5 +15,9 @@ class PhotosController < ApplicationController
   end
 
   def edit
+    unless PhotoService.raw_path(current_user.screen_name).exist?
+      redirect_to controller: :profiles, action: :edit
+      return
+    end
   end
 end
