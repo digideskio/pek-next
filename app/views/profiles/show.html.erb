@@ -7,7 +7,13 @@
       <div class="uk-grid uk-flex-middle">
 
         <div class="uk-width-medium-1-3 uk-flex-center uk-padding-large">
-          <%= image_tag photo_path(@user_presenter.screen_name), class: "uk-thumbnail uk-width-expand", alt: @user_presenter.full_name, id: 'profile-picture' %>
+          <figure class="uk-overlay uk-overlay-hover">
+            <%= image_tag photo_path(@user_presenter.screen_name),
+                class: "uk-width-expand",
+                alt: @user_presenter.full_name,
+                id: 'profile-picture' %>
+            <%= @user_presenter.photo_edit(current_user) %>
+          </figure>
         </div>
 
         <div class="uk-width-medium-1-3 uk-flex-center">

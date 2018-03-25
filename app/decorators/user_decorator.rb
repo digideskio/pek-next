@@ -40,4 +40,14 @@ class UserDecorator < Draper::Decorator
 
     content_tag(:h4, "Küldött itt: " + user.primary_membership.group.name, class: 'uk-h4')
   end
+
+  def photo_edit(current_user)
+    return if user != current_user
+
+    link = link_to(content_tag(:i, '', class: 'uk-icon-edit'),
+          controller: :photos, action: :edit,
+          id: user.screen_name)
+    content_tag(:figcaption, link,
+      class: 'uk-overlay-panel uk-overlay-right uk-overlay-top uk-overlay-background')
+  end
 end
